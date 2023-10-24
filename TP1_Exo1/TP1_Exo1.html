@@ -1,0 +1,308 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <script src="p5.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <meta charset="utf-8">
+    <style>
+    body 
+    {
+      background-image: url('../images/fond.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+    }
+    </style>
+</head>
+
+<body>
+<!--=====================================================-->
+  <div class="header">
+    <svg class="rect" width="100%" height="100">
+        <defs>
+            <linearGradient id="grad1" x1="50%" y1="0%" x2="50%" y2="140%">
+                <stop offset="0%" style="stop-color:rgb(10,10,10);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(200,200,200);stop-opacity:1" />
+            </linearGradient>
+        </defs><rect class="rect" width="100%" height="100" fill="url(#grad1)"></rect>
+    </svg>
+    <div>
+        <center><h1 class="titre" style="color:rgb(230,230,230);text-align:center"><font face="Bahnschrift Condensed">Exo 1 : Premiers tracés</font></h1></center>
+        <a href="../index.html"><img src="../images/home.png" title="Menu" class="martin" style="float:left"></a><br><br><br>
+        <span class="martin2" style="color:rgb(230,230,230);float:right"><font face="Bahnschrift Condensed">Léo Trinquet</font></span>
+    </div>
+<!--=====================================================-->
+    <div>
+        <button class="gbutton" style="float:left" title="Tracé Précédent" onclick="plusDivs(-1) ">&#10094;</button>
+        <button class="dbutton" style="float:right" title="Tracé Suivant" onclick="plusDivs(1)">&#10095;</button>
+        
+        <center><h2 id="t1" width="100" height="100" class="sub"><font face="Bahnschrift Condensed">Exo 1.a : Initiales</font></h2></center>
+        <center><h2 id="t2" width="100" height="100" class="sub"><font face="Bahnschrift Condensed">Exo 1.b.1 : Mondrian</font></h2></center>
+        <center><h2 id="t3" width="100" height="100" class="sub"><font face="Bahnschrift Condensed">Exo 1.b.2 : Kaleidoscope</font></h2></center>
+        <center><h2 id="t4" width="100" height="100" class="sub"><font face="Bahnschrift Condensed">Exo 1.b.3 : Fractale</font></h2></center>
+        <center><h2 id="t5" width="100" height="100" class="sub"><font face="Bahnschrift Condensed">Exo 1.c : Piet</font></h2></center>
+    </div>   
+  </div>
+  
+  <br>
+  <center><h2><u><font face="Bahnschrift Condensed">Aperçu :</font></u></h2></center>
+  
+  <!--=========================-->
+  <center><img src="../images/Initiales1.png" class="slides" style="display:none"></center>
+  <center><img src="../images/Mondrian.png" class="slides" style="display:none"></center>
+  <center><img src="../images/Kaleidoscope.png" class="slides" style="display:none"></center>
+  <center><img src="../images/Fractale.png" class="slides" style="display:none"></center>
+  <center><script src="sketchExo1.c.js" style="display:none"></script></center>
+  <center><div id='sketch-holder1' width="200" height="200" class="slides" style="display:none"></div></center>
+  
+  <!--=========================
+  <script src="sketchExo1.a.js" ></script>
+  <center><div id='sketch-holder1' class="slides" style="display:none"></div></center>
+  
+  <script src="sketchExo1.b.1.js" ></script>
+  <center><div id='sketch-holder2' class="slides" style="display:none"></div></center>
+  
+  <script src="sketchExo1.b.2.js" ></script>
+  <center><div id='sketch-holder3' class="slides" style="display:none"></div></center>
+  -->
+  
+<!--========================1=============================-->  
+
+  <center><h2><u><font face="Bahnschrift Condensed">Code :</font></u></h2></center>
+  
+  <div id="code1" class="codes" style="position: relative;margin: auto;height:595px;width:600px;background:gray;border:2px solid;background-color: white;background-color: rgba(255, 255, 255, .5)">
+    <p><span class="commentaires">//Trinquet Léo - TP1 : Exercice 1.a</span><br>
+    <a href ="https://editor.p5js.org/leooo/sketches/btshRlH0y">https://editor.p5js.org/leooo/sketches/btshRlH0y</a><br><br>
+    function setup()<br>
+    {<br>
+       &emsp;x=400<br>
+       &emsp;y=400<br><br>
+       &emsp;let canvas = createCanvas(x,y);<span class="commentaires" style="text-align:">&emsp;//zone de dessin</span><br>
+      <br>
+      &emsp;smooth();<br>
+      &emsp;background(0); <span class="commentaires">&emsp;//fond noir</span><br>
+      &emsp;strokeWeight(x/20); <span class="commentaires" style="text-align:">&emsp;//épaisseur des traits</span><br>
+      <br>
+      <span class="commentaires" style="text-align:">&emsp;//Effet Glow</span><br>
+      &emsp;fill(255,255,255,3/2);<br>
+      &emsp;for(i = 0; i< 150; i++) { ellipse(width/2,height/2, i*3);}<br>
+      <br>
+      &emsp;<span class="commentaires" style="text-align:">//Lettre L</span><br>
+      &emsp;stroke(255,255, 255);<br>
+      &emsp;line(x/3, x/6, x/3, x*2/3); <span class="commentaires" style="text-align:">&emsp;// ligne blanche verticale</span><br>
+      &emsp;line(x/3, x*2/3, x*2/3, x*2/3); <span class="commentaires" style="text-align:">&emsp;// ligne blanche horizontale</span><br>
+      <br>
+      &emsp;<span class="commentaires" style="text-align:">//Lettre T</span><br>
+      &emsp;stroke(100,100, 100);<br>
+      &emsp;line(x*5/12, x/3, x*11/12, x/3); <span class="commentaires" style="text-align:">&emsp;// ligne grise verticale</span><br>
+      &emsp;line(x*2/3, x/3, x*2/3, x*5/6); <span class="commentaires" style="text-align:">&emsp;// ligne grise horizontale</span><br>
+      <br>
+      &emsp;<span class="commentaires" style="text-align:">//Point Rouge</span><br>
+      &emsp;stroke(255,100, 100);<br>
+      &emsp;line(x/2, x/2, x/2, x/2); <span class="commentaires" style="text-align:">// point rouge</span><br>
+    }<br><br><br><br><br><br></p>
+  </div>
+   
+ <!--========================2=============================-->   
+  <div id="code2" class="codes" style="position: relative;margin: auto;height:668px;width:600px;background:gray;border:2px solid;background-color: white;background-color: rgba(255, 255, 255, .5)">
+    <p><span class="commentaires">//Trinquet Léo - TP1 : Exercice 1.b.1</span><br>
+    <a href ="https://editor.p5js.org/leooo/sketches/nAq2iFZVR">https://editor.p5js.org/leooo/sketches/nAq2iFZVR</a><br><br>
+    function setup()<br>
+    {<br>
+       &emsp;let canvas = createCanvas(410,500);<span class="commentaires" style="text-align:">&emsp;//zone de dessin</span><br>
+      <br>
+      &emsp;smooth();<br><br>
+      &emsp;<span class="commentaires">//Fond Noir</span><br>
+      &emsp;fill(0);<br>
+      &emsp;rect(-10,-10,400,504);<br>
+      &emsp;strokeWeight(10); <span class="commentaires" style="text-align:">&emsp;//épaisseur des traits</span><br>
+      <br>
+      &emsp;<span class="commentaires" style="text-align:">//Carré Rouge</span><br>
+      &emsp;fill(255,0,0);<br>
+      &emsp;square(2,2,100);<br>
+      <br>
+      &emsp;<span class="commentaires" style="text-align:">//Carrés Blancs</span><br>
+      &emsp;fill(255,255,255);<br>
+      &emsp;square(2,100,110);<br>
+      &emsp;square(98,2,200);<br>
+      &emsp;rect(290,200,110,198);<br>
+
+      <br>
+      &emsp;<span class="commentaires" style="text-align:">//Carré Bleu</span><br>
+      &emsp;fill(0,0,255); <br>
+      &emsp;square(2,200,288); <br>
+
+      <br>
+      &emsp;<span class="commentaires" style="text-align:">//Carré Vert</span><br>
+      &emsp;fill(0,255,0); <br>
+      &emsp;rect(290,2,110,198); <br>
+
+      <br>
+      &emsp;<span class="commentaires" style="text-align:">//Carré Jaune</span><br>
+      &emsp;fill(255,255,0); <br>
+      &emsp;square(290,380,110); <br>
+     }<br><br><br><br><br><br> </p>
+  </div>
+  
+ <!--========================3=============================-->   
+  <div id="code3" class="codes" style="position: relative;margin: auto;height:578px;width:600px;background:gray;border:2px solid;background-color: white;background-color: rgba(255, 255, 255, .5)">
+    <p><span class="commentaires">//Trinquet Léo - TP1 : Exercice 1.b.2</span><br>
+    <a href ="https://editor.p5js.org/leooo/sketches/Uf73A7I_s">https://editor.p5js.org/leooo/sketches/Uf73A7I_s</a><br><br>
+    
+    function setup()<br>
+    {<br>
+       &emsp;let canvas = createCanvas(335,335);<span class="commentaires" style="text-align:">&emsp;//zone de dessin</span><br>
+      <br>
+      &emsp;smooth();<br>
+      &emsp;background(255);<br>
+      &emsp;fill(255);<span class="commentaires" style="text-align:">&emsp;//couleur intérieure des formes</span><br>
+      &emsp;strokeWeight(5); <span class="commentaires" style="text-align:">&emsp;//épaisseur de contour des formes</span><br>
+      <br>
+      &emsp;x=0; <span class="commentaires" style="text-align:">&emsp;//contour noirs</span><br>
+      &emsp;y=35;<br>
+      &emsp;stroke(x); <span class="commentaires" style="text-align:">&emsp;//couleur du contour des cercles</span><br>
+      <br>
+      &emsp;for (i = 12 ; i<180 ; i+=24)<br>
+      &emsp;{<br>
+      &emsp;&emsp;for (j=12 ; j<170 ; j+=24)<br>
+      &emsp;&emsp;{<br>
+      &emsp;&emsp;&emsp;stroke(x); <span class="commentaires" style="text-align:">&emsp;//couleur du contour des cercles</span><br>
+      &emsp;&emsp;&emsp;circle(i,j,20); <span class="commentaires" style="text-align:">&emsp;//partie haut gauche</span> <br>
+      &emsp;&emsp;&emsp;circle(i,2*170-j-5,20); <span class="commentaires" style="text-align:">&emsp;//partie bas gauche</span> <br>
+      &emsp;&emsp;&emsp;circle(2*180-i-25,j,20); <span class="commentaires" style="text-align:">&emsp;//partie haut droite</span> <br>
+      &emsp;&emsp;&emsp;circle(2*180-i-25,2*170-j-5,20); <span class="commentaires" style="text-align:">&emsp;//partie bas droite</span> <br>
+      &emsp;&emsp;&emsp;x=x+y; <span class="commentaires" style="text-align:">&emsp;//on éclaircit le contour du cercle à chaque fois qu'on s'approche du centre</span> <br>
+      &emsp;&emsp;}<br>
+      &emsp;&emsp;x=0;<br>
+      &emsp;&emsp;y=y-3;<br>
+      &emsp;}<br>
+    }<br><br><br><br><br><br> </p>
+  </div>
+     
+  <!--========================4=============================-->   
+  <div id="code4" class="codes" style="position: relative;margin: auto;height:505px;width:600px;background:gray;border:2px solid;background-color: white;background-color: rgba(255, 255, 255, .5)">
+    <p><span class="commentaires">//Trinquet Léo - TP1 : Exercice 1.b.3</span><br>
+    <a href ="https://editor.p5js.org/leooo/sketches/Gg20KDCy0">https://editor.p5js.org/leooo/sketches/Gg20KDCy0</a><br><br>
+    function setup()<br>
+    {<br>
+       &emsp;let canvas = createCanvas(400,400);<span class="commentaires" style="text-align:">&emsp;//zone de dessin</span><br>
+      <br>
+      &emsp;smooth();<br>
+      &emsp;background(255);<span class="commentaires" style="text-align:">&emsp;//fond blanc</span><br>
+      &emsp;stroke(200);<span class="commentaires" style="text-align:">&emsp;//couleur du contour des rectangles</span><br>
+      &emsp;strokeWeight(3); <span class="commentaires" style="text-align:">&emsp;//taille du contour des rectangles</span><br>
+      <br>
+      &emsp;x=4; <span class="commentaires" style="text-align:">&emsp;//contour noirs</span><br>
+      &emsp;s=100;<br><br>
+      <span class="commentaires" style="text-align:">&emsp;//On trace 4 carrés pour la première colonne, puis à chaque nouvelle colonne, on</span><br>
+      <span class="commentaires" style="text-align:">&emsp;//multiplie le nombre de carrés tracés par 2 et on divise leur hauteur par 2.</span><br>
+      <br>
+      &emsp;for (i = 0 ; i<4 ; i++)<br>
+      &emsp;{<br>
+      &emsp;&emsp;for (j=0 ; j<'x ; j++){<br>
+      &emsp;&emsp;&emsp;rect(i*100,j*s+1,100,s);<br>
+      &emsp;&emsp;}<br>
+      &emsp;&emsp;x=2*x;<br>
+      &emsp;&emsp;s=s/2;<br>
+      &emsp;}<br>
+      
+    }<br><br><br><br><br><br> </p>
+  </div>
+  
+  <!--========================5=============================-->   
+  <div id="code5" class="codes" style="position: relative;margin: auto;height:615px;width:600px;background:gray;border:2px solid;background-color: white;background-color: rgba(255, 255, 255, .5)">
+    <p><span class="commentaires">//Trinquet Léo - TP1 : Exercice 1.c</span><br>
+    <a href ="https://editor.p5js.org/leooo/sketches/a0BWehG3Q">https://editor.p5js.org/leooo/sketches/a0BWehG3Q</a><br><br>
+    function setup()<br>
+    {<br>
+       &emsp;let canvas = createCanvas(400,400);<span class="commentaires" style="text-align:">&emsp;//zone de dessin</span><br>
+      <br>
+      &emsp;smooth();<br>
+      &emsp;background(230);<span class="commentaires" style="text-align:">&emsp;//fond blanc</span><br>
+      &emsp;noStroke();<br>
+      &emsp;let magenta = [197,80,106];<br>
+      &emsp;let bleu = [55,83,192];<br>
+      &emsp;let marron = [173,86,74];<br><br>
+
+      &emsp;<span class="commentaires" style="text-align:">//23 rectangles de couleur magenta, bleue ou marron</span><br>
+      &emsp;for (i = 0 ; i<23 ; i++)<br>
+      &emsp;{<br>
+      &emsp;&emsp;let couleur = random([magenta, bleu, marron]);<br>
+      &emsp;&emsp;fill(couleur[0],couleur[1],couleur[2]);<br>
+      &emsp;&emsp;rect(random(10,350),random(10,350),random(35,65),random(35,65));  <br>
+      &emsp;}<br><br>
+   
+      &emsp;<span class="commentaires" style="text-align:">//28 petits rectangles noirs</span><br>
+      &emsp;fill(0);<br>
+      &emsp;for (i = 0 ; i<14 ; i++)<br>
+      &emsp;{<br>
+      &emsp;&emsp;rect(random(10,390),random(10,390),random(6,10),random(20,30));<br>
+      &emsp;}<br>
+      &emsp;for (i = 0 ; i<14 ; i++)<br>
+      &emsp;{<br>
+      &emsp;&emsp;rect(random(10,390),random(10,390),random(20,30),random(6,10));<br>
+      &emsp;}<br>  
+    }<br><br><br><br><br><br> </p>
+  </div>
+<!--==================================-->
+  
+  <script>
+  var slideIndex = 1;
+  showDivs1(slideIndex);
+    
+  var txtIndex = 1;
+  showDivs2(txtIndex);
+
+  var subIndex = 1;
+  showDivs3(subIndex);
+
+
+  function plusDivs(n) {
+    showDivs1(slideIndex += n);
+    showDivs2(txtIndex += n);
+    showDivs3(subIndex += n);
+  }
+
+  function showDivs1(n) {
+    var i;
+    var x = document.getElementsByClassName("slides");
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    x[slideIndex-1].style.display = "block";
+  }
+  function showDivs2(n) {  
+    var j;
+    var t = document.getElementsByClassName("codes");
+    if (n > t.length) {txtIndex = 1}
+    if (n < 1) {txtIndex = t.length}
+    for (j = 0; j < t.length; j++) {
+      t[j].style.display = "none";  
+    }
+    t[txtIndex-1].style.display = "block";
+  }
+  function showDivs3(n) {  
+    var j;
+    var t = document.getElementsByClassName("sub");
+    if (n > t.length) {subIndex = 1}
+    if (n < 1) {subIndex = t.length}
+    for (j = 0; j < t.length; j++) {
+      t[j].style.display = "none";  
+    }
+    t[subIndex-1].style.display = "block";
+  }
+  </script>
+   
+  <script type="text/javascript">
+        function toggle(obj) {
+          var obj=document.getElementById(obj);
+          if (obj.style.display == "block") obj.style.display = "none";
+          else obj.style.display = "block";}
+  </script>
+      
+      
+      
+</body>
+</html>

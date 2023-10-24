@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <script src="p5.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <meta charset="utf-8">
+    <style>
+    body 
+    {
+      background-image: url('../images/fond.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+    }
+    </style>
+</head>
+
+<body>
+<!--=====================================================-->
+  <div class="header">
+    <svg class="rect" width="100%" height="100">
+        <defs>
+            <linearGradient id="grad1" x1="50%" y1="0%" x2="50%" y2="140%">
+                <stop offset="0%" style="stop-color:rgb(10,10,10);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(200,200,200);stop-opacity:1" />
+            </linearGradient>
+        </defs><rect class="rect" width="100%" height="100" fill="url(#grad1)"></rect>
+    </svg>
+    <div>
+        <center><h1 class="titre" style="color:rgb(230,230,230);text-align:center"><font face="Bahnschrift Condensed">Exo 3 : Slider pour modifier la taille d’une image</font></h1></center>
+        <a href="../index.html"><img src="../images/home.png" title="Menu" class="martin" style="float:left"></a><br><br><br>
+        <span class="martin2" style="color:rgb(230,230,230);float:right"><font face="Bahnschrift Condensed">Léo Trinquet</font></span>
+    </div>
+<!--=====================================================-->
+
+  <br>
+  <center><h2><u><font face="Bahnschrift Condensed">Aperçu :</font></u></h2></center>
+  
+  <!--=========================-->
+  <center><script src="sketchExo3b.js"></script></center>
+  <center><div id='sketch-holder1'></div></center>
+  <center><div id='sketch-holder2' style='display: block'></div></center>
+  <center><div id='sketch-holder3' style='display: block'></div></center>
+  
+<!--========================1=============================-->  
+
+  <center><h2><u><font face="Bahnschrift Condensed">Code :</font></u></h2></center>
+  
+  <div id="code1" class="codes" style="position: relative;margin: auto;height:520px;width:600px;background:gray;border:2px solid;background-color: white;background-color: rgba(255, 255, 255, .5)">
+    <p><span class="commentaires">//Trinquet Léo - TP3 : Exercice 3 : Slider | 08/04</span><br>
+    <a href ="https://editor.p5js.org/leooo/sketches/pjVPY4n-c">https://editor.p5js.org/leooo/sketches/pjVPY4n-c</a><br><br>
+     
+let slider;<br> <br> 
+
+function preload(){<br> 
+  &emsp;img1 =loadImage("Initiales1.png")<br> 
+  &emsp;img2 =loadImage("Piet1.png")<br> 
+}<br> <br> 
+
+function setup() {<br> 
+  &emsp;let canvas = createCanvas(600,600);<br> 
+  
+  &emsp;slider1 = createSlider(1, 576, 288);<br> 
+  &emsp;slider1.style('width', '80px');<br> <br> 
+  
+  &emsp;slider2 = createSlider(1, 24, 12);<br> 
+  &emsp;slider2.style('width', '80px');<br> 
+}<br> <br> 
+
+function draw() {<br> 
+  &emsp;clear();<br> <br> 
+  
+  &emsp;let val1 = slider1.value();<br> 
+  &emsp;image(img1, 0, 0, val1,val1); <span class="commentaires" style="text-align:">// Correspondance linéaire</span><br><br> 
+  
+  &emsp;let val2 = slider2.value();<br> 
+  &emsp;image(img2, 0, 0, val2*val2,val2*val2); <span class="commentaires" style="text-align:">// Correspondance polynomiale d'ordre 2</span><br>
+
+}<br><br><br><br><br><br></p>
+  </div>
+
+      
+</body>
+</html>

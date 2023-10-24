@@ -1,0 +1,67 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+
+.commentaires {
+  color: green;
+}
+
+.martin
+{
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  left: 30px;
+  top: 30px;
+}
+
+.rect
+{
+  position: absolute;
+  top: -5px;
+}
+
+.martin2
+{
+  position: absolute;
+  white-space: nowrap ;
+  width: 15px;
+  height: 15px;
+  right: 100px;
+  top: 40px;
+}
+
+.titre
+{
+    position: relative;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.subtitle
+{
+    text-align:center;
+    position: relative;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subtitles   
+{
+    text-align:center;
+    position: relative;
+    top: 10px;display: flex;
+    justify-content: center;
+    align-items: center;
+}   
+    

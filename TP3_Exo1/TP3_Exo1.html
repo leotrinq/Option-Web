@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <script src="p5.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <meta charset="utf-8">
+    <style>
+    body 
+    {
+      background-image: url('../images/fond.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+    }
+    </style>
+</head>
+
+<body>
+<!--=====================================================-->
+  <div class="header">
+    <svg class="rect" width="100%" height="100">
+        <defs>
+            <linearGradient id="grad1" x1="50%" y1="0%" x2="50%" y2="140%">
+                <stop offset="0%" style="stop-color:rgb(10,10,10);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(200,200,200);stop-opacity:1" />
+            </linearGradient>
+        </defs><rect class="rect" width="100%" height="100" fill="url(#grad1)"></rect>
+    </svg>
+    <div>
+        <center><h1 class="titre" style="color:rgb(230,230,230);text-align:center"><font face="Bahnschrift Condensed">Exo 1 : Un insecte volant</font></h1></center>
+        <a href="../index.html"><img src="../images/home.png" title="Menu" class="martin" style="float:left"></a><br><br><br>
+        <span class="martin2" style="color:rgb(230,230,230);float:right"><font face="Bahnschrift Condensed">Léo Trinquet</font></span>
+    </div>
+<!--=====================================================-->
+
+  <br>
+  <center><h2><u><font face="Bahnschrift Condensed">Aperçu :</font></u></h2></center>
+  
+  <!--=========================-->
+  <center><script src="sketchExo1.js"></script></center>
+  <center><div id='sketch-holder1' width="200" height="200"></div></center>
+  
+<!--========================1=============================-->  
+
+  <center><h2><u><font face="Bahnschrift Condensed">Code :</font></u></h2></center>
+  
+  <div id="code1" class="codes" style="position: relative;margin: auto;height:1550px;width:600px;background:gray;border:2px solid;background-color: white;background-color: rgba(255, 255, 255, .5)">
+    <p><span class="commentaires">//Trinquet Léo - TP3 : Exercice 1 :  Un insecte volant | 28/03</span><br>
+    <a href ="https://editor.p5js.org/leooo/sketches/rYuhp8iPG">https://editor.p5js.org/leooo/sketches/rYuhp8iPG</a><br><br>
+    <span class="commentaires" style="text-align:">// VARIABLES GLOBALES</span><br> 
+    <span class="commentaires" style="text-align:">// ========================</span><br>
+    let nomImage1 = "insecte.png";<br>
+    let nomImage2 = "background.png";<br>
+    let spriteSheet;<br>
+    let animatedCharacter = [];<br>
+    let imageEnCours; <span class="commentaires" style="text-align:">// représente l'image affichée à l'instant t</span><br>
+    let imageBackground; <span class="commentaires" style="text-align:">// représente l'image de fond</span><br>
+    let nbImages = 4; <span class="commentaires" style="text-align:">// nombre d'images au total</span><br>
+    let nbSprite = 0; <span class="commentaires" style="text-align:">//type nombre = compteur de l'image en cours</span><br>
+    let timer =0;<br>
+    let posBack = 0; <span class="commentaires" style="text-align:">// compteur pour faire défiler le fond</span><br><br>
+    
+    let width=500; <br><br>
+    
+    <span class="commentaires" style="text-align:">// PRECHARGEMENT DES IMAGES</span><br>
+    <span class="commentaires" style="text-align:">// ========================</span><br>
+    function preload() {<br>
+      &emsp;spriteSheet = loadImage(nomImage1);<br>
+      &emsp;imageBackground = loadImage(nomImage2);<br>
+    }<br><br>
+    
+    <span class="commentaires" style="text-align:">// INITIALISATION </span><br>
+    <span class="commentaires" style="text-align:">// ========================</span><br>
+    function setup() {<br>
+      &emsp;<span class="commentaires" style="text-align:">// on créé le canvas HTML 5</span><br>
+      &emsp;createCanvas(width,480);<br><br>
+      
+      &emsp;<span class="commentaires" style="text-align:">// on découpe l'image principale en sous images qu'on stocke dans un tableau</span><br><br>
+    
+      &emsp;let i = 0;<br>
+      &emsp;while(i<4)<br>
+        &emsp;{<br>
+          &emsp;&emsp;i+=4<br>
+          &emsp;&emsp;imageEnCours = spriteSheet.get(0,240,240,240);<br>
+          &emsp;&emsp;animatedCharacter.push(imageEnCours) ;<br>
+          &emsp;&emsp;imageEnCours = spriteSheet.get(240,240,240,240);<br>
+          &emsp;&emsp;animatedCharacter.push(imageEnCours) ;<br>
+          &emsp;&emsp;imageEnCours = spriteSheet.get(480,240,240,240);<br>
+          &emsp;&emsp;animatedCharacter.push(imageEnCours) ;<br>
+          &emsp;&emsp;imageEnCours = spriteSheet.get(720,0,240,240);<br>
+          &emsp;&emsp;animatedCharacter.push(imageEnCours) ;<br>
+          &emsp;&emsp;<span class="commentaires" style="text-align:">// on récupère la bonne image dans la grille  </span><br>    
+        &emsp;}<br>
+    }<br><br>
+    
+    <span class="commentaires" style="text-align:">// AFFICHAGE TRAME PAR TRAME </span><br>
+    <span class="commentaires" style="text-align:">// ===============================</span><br>
+    function draw() {<br>
+      &emsp;posBack += 2; <span class="commentaires" style="text-align:">// pour faire défiler le fond, on prépare une sorte de compteur</span><br>
+      &emsp;if(timer > 2)<br>
+      &emsp;{<br>
+        &emsp;&emsp;timer = 0;<br><br>
+        
+        &emsp;&emsp;<span class="commentaires" style="text-align:">// on affiche le fond en 2 fois : le bord droit de l'image se colle complètement à gauche</span><br>
+        &emsp;&emsp;<span class="commentaires" style="text-align:">// tandis que puis le bord gauche de l'image ira de la fin du bord droit de l'image</span><br>
+        &emsp;&emsp;<span class="commentaires" style="text-align:">// jusqu'au bord droit du canvas</span><br><br>
+        &emsp;&emsp;image(imageBackground,posBack,0);<br>
+        &emsp;&emsp;image(imageBackground, posBack - 2160,0);<br><br>
+        
+        &emsp;&emsp;<span class="commentaires" style="text-align:">// on dessine un sol vert</span><br>
+        &emsp;&emsp;fill(75,125,0);<br>
+        &emsp;&emsp;rect(0,400,width,80);<br><br>
+        
+        
+        &emsp;&emsp;<span class="commentaires" style="text-align:">// on affiche l'insecte</span><br>
+        &emsp;&emsp;image(animatedCharacter[nbSprite],width/3,100);<br><br>
+        
+        &emsp;&emsp;<span class="commentaires" style="text-align:">// vérification du compteur pour boucler le sprite si besoin. </span><br>
+        &emsp;&emsp;nbSprite += 1;<br>
+        &emsp;&emsp;if(nbSprite > nbImages-1)<br>
+        &emsp;&emsp;{ <span class="commentaires" style="text-align:">// on recommence à 0 quand on arrive au bout</span><br>
+          &emsp;&emsp;&emsp;nbSprite = 0;<br>
+        &emsp;&emsp;}<br>
+      &emsp;}<br>
+      &emsp;else{<br>
+        &emsp;&emsp;timer++; <br>
+      &emsp;}<br>
+      &emsp;if(posBack > +2160){ <span class="commentaires" style="text-align:">// quand on a fait le tour du bandeau de fond</span><br>
+        &emsp;&emsp;posBack = 0; <span class="commentaires" style="text-align:">// alors on reprend au début</span><br>
+      &emsp;}<br>
+
+
+}<br><br><br><br><br><br></p>
+  </div>
+
+      
+</body>
+</html>

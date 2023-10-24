@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <script src="p5.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <meta charset="utf-8">
+    <style>
+    body 
+    {
+      background-image: url('../images/fond.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+    }
+    </style>
+</head>
+
+<body>
+<!--=====================================================-->
+  <div class="header">
+    <svg class="rect" width="100%" height="100">
+        <defs>
+            <linearGradient id="grad1" x1="50%" y1="0%" x2="50%" y2="140%">
+                <stop offset="0%" style="stop-color:rgb(10,10,10);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(200,200,200);stop-opacity:1" />
+            </linearGradient>
+        </defs><rect class="rect" width="100%" height="100" fill="url(#grad1)"></rect>
+    </svg>
+    <div>
+        <center><h1 class="titre" style="color:rgb(230,230,230);text-align:center"><font face="Bahnschrift Condensed">Exo 4 : Tablette à dessin</font></h1></center>
+        <a href="../index.html"><img src="../images/home.png" title="Menu" class="martin" style="float:left"></a><br><br><br>
+        <span class="martin2" style="color:rgb(230,230,230);float:right"><font face="Bahnschrift Condensed">Léo Trinquet</font></span>
+    </div>
+<!--=====================================================-->
+
+  <br>
+  <center><h2><u><font face="Bahnschrift Condensed">Aperçu :</font></u></h2></center>
+  
+  <!--=========================-->
+  <center><script src="sketchExo4.js"></script></center>
+  <center><div id='sketch-holder1' width="200" height="200"></div></center>
+  
+<!--========================1=============================-->  
+
+  <center><h2><u><font face="Bahnschrift Condensed">Code :</font></u></h2></center>
+  
+  <div id="code1" class="codes" style="position: relative;margin: auto;height:3170px;width:600px;background:gray;border:2px solid;background-color: white;background-color: rgba(255, 255, 255, .5)">
+    <p><span class="commentaires">//Trinquet Léo - TP1 : Exercice 4 : Tablette à Dessin | 14/03</span><br>
+    <a href ="https://editor.p5js.org/leooo/sketches/NA3NRyBNQ">https://editor.p5js.org/leooo/sketches/NA3NRyBNQ</a><br><br>
+    function setup()<br>
+    {<br>
+       &emsp;let canvas = createCanvas(700,400);<span class="commentaires" style="text-align:">&emsp;//zone de dessin</span><br>
+
+      &emsp;background(100);<br><br>
+      
+      &emsp;strokeWeight(3);<br>
+      &emsp;fill(200);<br>
+      &emsp;rect(20,20,100,360); <span class="commentaires" style="text-align:">&emsp;//Rectangle gris</span><br>
+      &emsp;fill(255);<br>
+      &emsp;rect(150,20,530,360); <span class="commentaires" style="text-align:">&emsp;//Rectangle blanc</span><br><br>
+      
+      &emsp;strokeWeight(2);<br>
+      &emsp;fill(255,0,0);<br>
+      &emsp;rect(35,35,25,25); <span class="commentaires" style="text-align:">&emsp;//Rouge</span><br><br>
+      
+      &emsp;fill(51,255,255);<br>
+      &emsp;rect(80,35,25,25); <span class="commentaires" style="text-align:">&emsp;//Cyan</span><br><br>
+      
+      &emsp;fill(255,153,51);<br>
+      &emsp;rect(35,80,25,25); <span class="commentaires" style="text-align:">&emsp;//Orange</span><br><br>
+      
+      &emsp;fill(0,128,253);<br>
+      &emsp;rect(80,80,25,25); <span class="commentaires" style="text-align:">&emsp;//Bleu</span><br><br>
+      
+      &emsp;fill(255,255,51);<br>
+      &emsp;rect(35,125,25,25); <span class="commentaires" style="text-align:">&emsp;//Jaune</span><br><br>
+      
+      &emsp;fill(0,0,204);<br>
+      &emsp;rect(80,125,25,25); <span class="commentaires" style="text-align:">&emsp;//Bleu foncé</span><br><br>
+      
+      &emsp;fill(51,255,51);<br>
+      &emsp;rect(35,170,25,25); <span class="commentaires" style="text-align:">&emsp;//Vert clair</span><br><br>
+      
+      &emsp;fill(153,51,255);<br>
+      &emsp;rect(80,170,25,25); <span class="commentaires" style="text-align:">&emsp;//Violet</span><br><br>
+      
+      &emsp;fill(0,153,0);<br>
+      &emsp;rect(35,215,25,25); <span class="commentaires" style="text-align:">&emsp;//Vert foncé</span><br><br>
+      
+      &emsp;fill(255,102,255);<br>
+      &emsp;rect(80,215,25,25); <span class="commentaires" style="text-align:">&emsp;//Rose</span><br><br>
+      
+      &emsp;fill(255);<br>
+      &emsp;rect(35,260,25,25); <span class="commentaires" style="text-align:">&emsp;//Blanc</span><br><br>
+      
+      &emsp;fill(0);<br>
+      &emsp;rect(80,260,25,25); <span class="commentaires" style="text-align:">&emsp;//Noir</span><br><br>
+      
+      &emsp;fill(255);<br>
+      &emsp;rect(35,295,70,70); <span class="commentaires" style="text-align:">&emsp;//Couleur choisie</span><br><br>
+      
+      &emsp;stroke(255);<br>
+    }<br><br>
+    
+    
+    function draw() {<br>
+        &emsp;if(mouseIsPressed){<br>
+        &emsp;&emsp;<span class="commentaires" style="text-align:">//Rouge</span><br>
+        &emsp;&emsp;if(mouseX>35 && mouseX < 60 && mouseY > 35 && mouseY <60)<br>
+            &emsp;&emsp;{<br>
+              &emsp;&emsp;&emsp;stroke(0);<br>
+              &emsp;&emsp;&emsp;strokeWeight(2);<br>
+              &emsp;&emsp;&emsp;fill(255,0,0);<br>
+              &emsp;&emsp;&emsp;rect(35,295,70,70);<br>
+              &emsp;&emsp;&emsp;stroke(255,0,0);<br>
+            &emsp;&emsp;}<br>
+          &emsp;&emsp;<span class="commentaires" style="text-align:">//Cyan</span><br>
+          &emsp;&emsp;else if(mouseX>80 && mouseX<105 && mouseY>35 && mouseY<60)<br>
+            &emsp;&emsp;{<br>
+              &emsp;&emsp;&emsp;stroke(0);<br>
+              &emsp;&emsp;&emsp;strokeWeight(2);<br>
+              &emsp;&emsp;&emsp;fill(51,255,255);<br>
+              &emsp;&emsp;&emsp;rect(35,295,70,70);<br>
+              &emsp;&emsp;&emsp;stroke(51,255,255);<br>
+            &emsp;&emsp;}<br>
+          &emsp;&emsp;<span class="commentaires" style="text-align:">//Orange</span><br>
+          &emsp;&emsp;else if(mouseX>35 && mouseX < 60 && mouseY>80 && mouseY<105)<br>
+            &emsp;&emsp;{<br>
+              &emsp;&emsp;&emsp;stroke(0);<br>
+              &emsp;&emsp;&emsp;strokeWeight(2);<br>
+              &emsp;&emsp;&emsp;fill(255,153,51);<br>
+              &emsp;&emsp;&emsp;rect(35,295,70,70);<br>
+              &emsp;&emsp;&emsp;stroke(255,153,51);<br>
+            &emsp;&emsp;}<br>
+          &emsp;&emsp;<span class="commentaires" style="text-align:">//Bleu</span><br>
+          &emsp;&emsp;else if(mouseX>80 && mouseX < 105 && mouseY>80 && mouseY<105)<br>
+            &emsp;&emsp;{<br>
+              &emsp;&emsp;&emsp;stroke(0);<br>
+              &emsp;&emsp;&emsp;strokeWeight(2);<br>
+              &emsp;&emsp;&emsp;fill(0,128,253);<br>
+              &emsp;&emsp;&emsp;rect(35,295,70,70);<br>
+              &emsp;&emsp;&emsp;stroke(0,128,253);<br>
+            &emsp;&emsp;&emsp;&emsp;}<br>
+          &emsp;&emsp;<span class="commentaires" style="text-align:">//Jaune</span><br>
+          &emsp;&emsp;else if(mouseX>35 && mouseX < 60 && mouseY>125 && mouseY<150)<br>
+            &emsp;&emsp;{<br>
+              &emsp;&emsp;&emsp;stroke(0);<br>
+              &emsp;&emsp;&emsp;strokeWeight(2);<br>
+              &emsp;&emsp;&emsp;fill(255,255,51);<br>
+              &emsp;&emsp;&emsp;rect(35,295,70,70);<br>
+              &emsp;&emsp;&emsp;stroke(255,255,51);<br>
+            &emsp;&emsp;}<br>
+          &emsp;&emsp;<span class="commentaires" style="text-align:">//Bleu Foncé</span><br>
+          &emsp;&emsp;else if(mouseX>80 && mouseX < 105 && mouseY>125 && mouseY<150)<br>
+            &emsp;&emsp;{<br>
+              &emsp;&emsp;&emsp;stroke(0);<br>
+              &emsp;&emsp;&emsp;strokeWeight(2);<br>
+              &emsp;&emsp;&emsp;fill(0,0,204);<br>
+              &emsp;&emsp;&emsp;rect(35,295,70,70);<br>
+              &emsp;&emsp;&emsp;stroke(0,0,204);<br>
+            &emsp;&emsp;}<br>
+          &emsp;&emsp;<span class="commentaires" style="text-align:">//Vert clair</span><br>
+          &emsp;&emsp;else if(mouseX>35 && mouseX < 60 && mouseY>170 && mouseY<195)<br>
+            &emsp;&emsp;{<br>
+              &emsp;&emsp;&emsp;stroke(0);<br>
+              &emsp;&emsp;&emsp;strokeWeight(2);<br>
+              &emsp;&emsp;&emsp;fill(51,255,51);<br>
+              &emsp;&emsp;&emsp;rect(35,295,70,70);<br>
+              &emsp;&emsp;&emsp;stroke(51,255,51);<br>
+            &emsp;&emsp;}<br>
+          &emsp;&emsp;<span class="commentaires" style="text-align:">//Violet</span><br>
+          &emsp;&emsp;else if(mouseX>80 && mouseX < 105 && mouseY>170 && mouseY<195)<br>
+            &emsp;&emsp;{<br>
+              &emsp;&emsp;&emsp;stroke(0);<br>
+              &emsp;&emsp;&emsp;strokeWeight(2);<br>
+              &emsp;&emsp;&emsp;fill(153,51,255);<br>
+              &emsp;&emsp;&emsp;rect(35,295,70,70);<br>
+              &emsp;&emsp;&emsp;stroke(153,51,255);<br>
+            &emsp;&emsp;}<br>
+          &emsp;&emsp;<span class="commentaires" style="text-align:">//Vert Foncé</span><br>
+          &emsp;&emsp;else if(mouseX>35 && mouseX < 60 && mouseY>215 && mouseY<240)<br>
+            &emsp;&emsp;{<br>
+              &emsp;&emsp;&emsp;stroke(0);<br>
+              &emsp;&emsp;&emsp;strokeWeight(2);<br>
+              &emsp;&emsp;&emsp;fill(0,153,0);<br>
+              &emsp;&emsp;&emsp;rect(35,295,70,70);<br>
+              &emsp;&emsp;&emsp;stroke(0,153,0);<br>
+            &emsp;&emsp;}<br>
+          &emsp;&emsp;<span class="commentaires" style="text-align:">//Rose</span><br>
+          &emsp;&emsp;else if(mouseX>80 && mouseX < 105 && mouseY>215 && mouseY<240)<br>
+            &emsp;&emsp;{<br>
+              &emsp;&emsp;&emsp;stroke(0);<br>
+              &emsp;&emsp;&emsp;strokeWeight(2);<br>
+              &emsp;&emsp;&emsp;fill(255,102,255);<br>
+              &emsp;&emsp;&emsp;rect(35,295,70,70);<br>
+              &emsp;&emsp;&emsp;stroke(255,102,255);<br>
+            &emsp;&emsp;}<br>
+          &emsp;&emsp;<span class="commentaires" style="text-align:">//Blanc</span><br>
+          &emsp;&emsp;else if(mouseX>35 && mouseX < 60 && mouseY>260 && mouseY<285)<br>
+            &emsp;&emsp;{<br>
+              &emsp;&emsp;&emsp;stroke(0);<br>
+              &emsp;&emsp;&emsp;strokeWeight(2);<br>
+              &emsp;&emsp;&emsp;fill(255);<br>
+              &emsp;&emsp;&emsp;rect(35,295,70,70);<br>
+              &emsp;&emsp;&emsp;stroke(255);<br>
+            &emsp;&emsp;}<br>
+          &emsp;&emsp;<span class="commentaires" style="text-align:">//Noir</span><br>
+          &emsp;&emsp;else if(mouseX>80 && mouseX < 105 && mouseY>260 && mouseY<285)<br>
+            &emsp;&emsp;{<br>
+              &emsp;&emsp;&emsp;stroke(0);<br>
+              &emsp;&emsp;&emsp;strokeWeight(2);<br>
+              &emsp;&emsp;&emsp;fill(0);<br>
+              &emsp;&emsp;&emsp;rect(35,295,70,70);<br>
+              &emsp;&emsp;&emsp;stroke(0);<br>
+            &emsp;&emsp;}<br>
+        &emsp;}<br>
+      &emsp;<span class="commentaires" style="text-align:">//Si on appuie dans la zone de dessin, une ligne apparait</span><br>
+       &emsp;if(mouseIsPressed&&(mouseX>152&&mouseX<678)&&(mouseY>22&&mouseY<378))<br> 
+       &emsp;{<br>
+        &emsp;&emsp;strokeWeight(5);<br>
+        &emsp;&emsp;line(mouseX,mouseY,pmouseX,pmouseY);<br>
+    
+       &emsp;}<br>
+
+}<br><br><br><br><br><br></p>
+  </div>
+
+      
+</body>
+</html>

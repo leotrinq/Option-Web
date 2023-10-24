@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="en"><head>
+    <script src="p5.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <style>
+    body 
+    {
+      background-image: url('images/fond.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+    }
+    </style>
+</head>
+  
+<body style="background-color:white;">
+
+  <script src="page_web.js"></script>
+  <audio loop id="myAudio">
+      <source src="images/Music.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+  </audio>
+
+  <div class="header">
+    <center><h1><font face="Bahnschrift Condensed">Léo Trinquet</font></h1></center>
+    <img id="son1" src="images/audio.png" class="martin2" style="float:right;display:none" onclick="pauseAudio();toggle('son1');toggle('son2') "/>
+    <img id="son2" src="images/audio_mute.png" class="martin2" style="float:right;display:inline" onclick="playAudio();toggle('son1');toggle('son2')"/>
+  </div>
+  
+  <br>
+  <center><h2><font face="Bahnschrift Condensed">Voici le résultat de mes travaux effectués tout au long de mes TPs de Web-Multimédia à l'Université Polytech Paris-Saclay :</font></h2></center>
+    
+<!--===========================Énoncés :===========================-->
+  <hr size="1" width="95%" color="black">
+  <br>
+  <p id="info1" class="pointer" onclick="toggle('info1');toggle('info2');toggle('info3');toggle('info4');toggle('info5');toggle('info6');toggle('espace1');toggle('espace2');toggle('espace3');toggle('espace4')" style="display:inline"><b><font face="Bahnschrift Condensed" size="+1">▸ Énoncés TPs</font></b></p>
+  <p id="info2" class="pointer" onclick="toggle('info1');toggle('info2');toggle('info3');toggle('info4');toggle('info5');toggle('info6');toggle('espace1');toggle('espace2');toggle('espace3');toggle('espace4')" style="display:none"><b><font face="Bahnschrift Condensed" size="+1">▾ Énoncés TPs</font></b></p>
+
+  <br id="espace1" style="display:none">
+  <a id="info3" class="tps" style="display:none;text-decoration:none;color:black" href="TP1 – Processing.pdf"><font face="Bahnschrift Condensed" size="+1"> TP 1 :  Introduction à p5*js</font></a>
+  <br id="espace2" style="display:none">
+  <a id="info4" class="tps" style="display:none;text-decoration:none;color:black" href="TP2 - P5js.pdf"><font face="Bahnschrift Condensed" size="+1"> TP 2 :  Pour aller plus loin sur P5.js</font></a>
+  <br id="espace3" style="display:none">
+  <a id="info5" class="tps" style="display:none;text-decoration:none;color:black" href="TP3 – Images.pdf"><font face="Bahnschrift Condensed" size="+1"> TP 3 :  Gestion d’images animées</font></a>
+  <br id="espace4" style="display:none">
+  <a id="info6" class="tps" style="display:none;text-decoration:none;color:black" href="TP WEB.pdf"><font face="Bahnschrift Condensed" size="+1"> TP Web :  Gestion évènementielle</font></a>
+  
+  <br><br>
+  <hr size="1" width="95%" color="black">
+
+<!--===========================TP :===========================-->
+  <br>
+  <p id="tp" class="pointer" onclick="toggle('tp');toggle('tp.2');toggle('tp1');toggle('tp2');toggle('tp3');toggle('tp4');toggle('saut');toggle('saut0.1');toggle('saut3.4');toggle('saut4.4')" style="display:inline"><b><font face="Bahnschrift Condensed" ,="" size="+1">▸ TPs</font></b></p>
+  <p id="tp.2" class="pointer" onclick="toggle('tp');toggle('tp.2');toggle('tp1');toggle('tp2');toggle('tp3');toggle('saut');toggle('saut0.1');   del('saut1');del('saut2');del('saut4');del('saut1.2');del('saut2.2');del('saut1.3');del('saut2.3');del('saut3.3');del('saut1.4');del('saut2.4');del('saut3.4');toggle('saut4.4');del('exo1');del('exo2');del('exo4');del('exo1.2');del('exo2.2');del('exo1.3');del('exo2.3');del('exo3.3');del('exo1.4');del('exo2.4');del('tp1');del('tp1.2');del('tp2');del('tp2.2');del('tp3');del('tp3.2');del('tp4');del('tp4.1')" style="display:none"><b><font face="Bahnschrift Condensed" ,="" size="+1">▾ TPs</font></b></p>
+  <br id="saut" style="display:none">
+  
+<!--============TP1 :============-->
+  <p id="tp1" onclick="toggle('tp1');toggle('tp1.2');toggle('saut1');toggle('saut2');toggle('saut4');toggle('exo1');toggle('exo2');toggle('exo4')" class="tps" style="display:none;text-decoration:none;color:black"><b><font face="Bahnschrift Condensed" ,="" size="+1">▸ TP1</font></b></p>
+  <p id="tp1.2" onclick="toggle('tp1');toggle('tp1.2');toggle('saut1');toggle('saut2');toggle('saut4');toggle('exo1');toggle('exo2');toggle('exo4')" class="tps" style="display:none;text-decoration:none;color:black"><b><font face="Bahnschrift Condensed" ,="" size="+1">▾ TP1</font></b></p>
+  <br id="saut0.1" style="display:none">
+  
+  <a id="exo1" class="exos" style="display:none;text-decoration:none;color:black" href="TP1_Exo1/TP1_Exo1.html"><font face="Bahnschrift Condensed" ,="" size="+1"> Exo 1 :  Premiers tracés</font></a>
+  <br id="saut1" style="display:none">
+  <a id="exo2" class="exos" style="display:none;text-decoration:none;color:black" href="TP1_Exo2/TP1_Exo2.html"><font face="Bahnschrift Condensed" ,="" size="+1"> Exo 2 & 3 : Petit Monstre & Mouvement des yeux</font></a>
+  <br id="saut2" style="display:none">
+  <a id="exo4" class="exos" style="display:none;text-decoration:none;color:black" href="TP1_Exo4/TP1_Exo4.html"><font face="Bahnschrift Condensed" ,="" size="+1"> Exo 4 : Tablette à dessin</font></a>
+  <br id="saut4" style="display:none">
+  
+<!--============TP2 :============-->
+  <p id="tp2" onclick="toggle('tp2');toggle('tp2.2');toggle('saut1.2');toggle('saut2.2');toggle('exo1.2');toggle('exo2.2')" class="tps" style="display:none"><b><font face="Bahnschrift Condensed" ,="" size="+1">▸ TP2</font></b></p>
+  <p id="tp2.2" onclick="toggle('tp2');toggle('tp2.2');toggle('saut1.2');toggle('saut2.2');toggle('exo1.2');toggle('exo2.2')" class="tps" style="display:none;text-decoration:none;color:black"><b><font face="Bahnschrift Condensed" ,="" size="+1">▾ TP2</font></b></p>
+  <br>
+  
+  <a id="exo1.2" class="exos" style="display:none;text-decoration:none;color:black" href="TP2_Exo1/TP2_Exo1.html"><font face="Bahnschrift Condensed" ,="" size="+1"> Exo 1 :  Stéréoscopie</font></a>
+  <br id="saut1.2" style="display:none">
+  <a id="exo2.2" class="exos" style="display:none;text-decoration:none;color:black" href="TP2_Exo2/TP2_Exo2.html"><font face="Bahnschrift Condensed" ,="" size="+1"> Exo 2 : Panorama urbain sur fond étoilé</font></a>
+  <br id="saut2.2" style="display:none">
+  
+<!--============TP3 :============-->
+  <p id="tp3" onclick="toggle('tp3');toggle('tp3.2');toggle('saut1.3');toggle('saut2.3');toggle('saut3.3');toggle('exo1.3');toggle('exo2.3');toggle('exo3.3')" class="tps" style="display:none"><b><font face="Bahnschrift Condensed" ,="" size="+1">▸ TP3</font></b></p>
+  <p id="tp3.2" onclick="toggle('tp3');toggle('tp3.2');toggle('saut1.3');toggle('saut2.3');toggle('saut3.3');toggle('exo1.3');toggle('exo2.3');toggle('exo3.3')" class="tps" style="display:none;text-decoration:none;color:black"><b><font face="Bahnschrift Condensed" ,="" size="+1">▾ TP3</font></b></p>
+  <br>
+  
+  <a id="exo1.3" class="exos" style="display:none;text-decoration:none;color:black" href="TP3_Exo1/TP3_Exo1.html"><font face="Bahnschrift Condensed" ,="" size="+1"> Exo 1 :  Un insecte volant</font></a>
+  <br id="saut1.3" style="display:none">
+  <a id="exo2.3" class="exos" style="display:none;text-decoration:none;color:black" href="TP3_Exo2/TP3_Exo2.html"><font face="Bahnschrift Condensed" ,="" size="+1"> Exo 2 : Un petit monstre gourmand</font></a>
+  <br id="saut2.3" style="display:none">
+  <a id="exo3.3" class="exos" style="display:none;text-decoration:none;color:black" href="TP3_Exo3/TP3_Exo3.html"><font face="Bahnschrift Condensed" ,="" size="+1"> Exo 3 : Slider pour modifier la taille d’une image</font></a>
+  <br id="saut3.3" style="display:none">
+  
+<!--============TP WEB :============-->  
+ <p id="tp4" onclick="toggle('tp4');toggle('tp4.1');toggle('saut1.4');toggle('saut2.4');toggle('exo1.4');toggle('exo2.4')" class="tps" style="display:none"><b><font face="Bahnschrift Condensed" ,="" size="+1">▸ TP Web</font></b></p>
+  <p id="tp4.1" onclick="toggle('tp4');toggle('tp4.1');toggle('saut1.4');toggle('saut2.4');toggle('exo1.4');toggle('exo2.4')" class="tps" style="display:none;text-decoration:none;color:black"><b><font face="Bahnschrift Condensed" ,="" size="+1">▾ TP Web</font></b></p>
+  
+  <br id="saut1.4" style="display:none">
+  <a id="exo1.4" class="exos" style="display:none;text-decoration:none;color:black" href="TP4_Exo1/TP4_Exo1.html"><font face="Bahnschrift Condensed" ,="" size="+1"> Exo 1 :  Changement de couleur</font></a>
+  <br id="saut2.4" style="display:none">
+  <a id="exo2.4" class="exos" style="display:none;text-decoration:none;color:black" href="TP4_Exo2/TP4_Exo2.html"><font face="Bahnschrift Condensed" ,="" size="+1"> Exo 2 : FAQ accordéon</font></a>
+  <br id="saut3.4" style="display:none">
+  <br id="saut4.4" style="display:none">
+
+  <script>
+    var x = document.getElementById("myAudio");
+    x.volume = 0.1;
+    
+    function playAudio() {
+      x.play();
+    }
+    
+    function pauseAudio() {
+      x.pause();
+    }
+  </script>
+  
+  
+  
+  <hr size="1" width="95%" color="black">
+  
+  
+  <br>
+  <br>
+
+<!--==========================================================-->
+  
+ 
+
+</body></html>

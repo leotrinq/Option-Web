@@ -1,0 +1,288 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <script src="p5.js"></script>
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    
+    <meta charset="utf-8">
+    <style>
+    body 
+    {
+      background-image: url('../images/fond.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+    }
+    </style>
+</head>
+
+<body>
+<!--=====================================================-->
+  <div class="header">
+    <svg class="rect" width="100%" height="100">
+        <defs>
+            <linearGradient id="grad1" x1="50%" y1="0%" x2="50%" y2="140%">
+                <stop offset="0%" style="stop-color:rgb(10,10,10);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(200,200,200);stop-opacity:1" />
+            </linearGradient>
+        </defs><rect class="rect" width="100%" height="100" fill="url(#grad1)"></rect>
+    </svg>
+    <div>
+        <center><h1 class="titre" style="color:rgb(230,230,230);text-align:center"><font face="Bahnschrift Condensed">Exo 2 & 3 : Petit Monstre & Mouvement des yeux</font></h1></center>
+        <a href="../index.html"><img src="../images/home.png" title="Menu" class="martin" style="float:left"></a><br><br><br>
+        <span class="martin2" style="color:rgb(230,230,230);float:right"><font face="Bahnschrift Condensed">Léo Trinquet</font></span>
+    </div>
+<!--=====================================================-->
+
+  <br>
+  <center><h2><u><font face="Bahnschrift Condensed">Aperçu :</font></u></h2></center>
+  
+  <!--=========================-->
+  <center><script src="sketchExo2b.js"></script></center>
+  <center><div id='sketch-holder1' width="200" height="200"></div></center>
+  
+<!--========================1=============================-->  
+
+  <center><h2><u><font face="Bahnschrift Condensed">Code :</font></u></h2></center>
+  
+  <div id="code1" class="codes" style="position: relative;margin: auto;height:4268px;width:600px;background:gray;border:2px solid;background-color: white;background-color: rgba(255, 255, 255, .5)">
+    <p><span class="commentaires">//Trinquet Léo - TP1 : Exercice 2 & 3: Petit monstre + Mouvement des yeux | 14/03</span><br>
+    <a href ="https://editor.p5js.org/leooo/sketches/lv2GQEgAf">https://editor.p5js.org/leooo/sketches/lv2GQEgAf</a><br><br>
+    function setup()<br>
+    {<br>
+       &emsp;let canvas = createCanvas(400,600);<span class="commentaires" style="text-align:">&emsp;//zone de dessin</span><br>
+
+      &emsp;background(100);<br><br>
+      
+      <span class="commentaires" style="text-align:">&emsp;//Tête</span><br>
+      &emsp;strokeWeight(15);<br>
+      &emsp;stroke(66,36,100);<br>
+      &emsp;noFill();<br>
+      &emsp;curve(329, 400, 312, 163, 379, 149, 290, -162);<br>
+      &emsp;curve(352, 353, 294, 94, 342, 33, 3, -239);<br>
+      &emsp;curve(600, 33, 197, 42, 200, -43, -120, -191);<br>
+      &emsp;curve(width-329, 400, width-312, 163, width-379, 149, width-290, -162);<br><br>
+      &emsp;curve(width-352, 353, width-294, 94, width-342, 33, width-3, -239);<br>
+      &emsp;strokeWeight(5);<br>
+      &emsp;fill(153,51,255);<br>
+      &emsp;curve(600, 1500, 92, 200, 308, 200, -200, 1500);<br><br>
+      
+      <span class="commentaires" style="text-align:">&emsp;//flaque verte</span><br>
+      &emsp;strokeWeight(10);<br>
+      &emsp;stroke(28,66,29);<br>
+      &emsp;fill(87,161,76);<br>
+      &emsp;ellipse(200,560,500,150);<br><br>
+      
+      <span class="commentaires" style="text-align:">&emsp;//Corps</span><br>
+      &emsp;noFill();<br>
+      &emsp;strokeWeight(150);<br>
+      &emsp;stroke(80,17,44);<br>
+      &emsp;curve(-1000, -1000, 202, 230, 185, 600, 1200, 1500);<br>
+      &emsp;strokeWeight(80);<br>
+      &emsp;stroke(153,51,255);<br>
+      &emsp;curve(-1000, -1000, 202, 222, 185, 600, 1200, 1500);<br>
+      &emsp;noStroke();<br>
+      &emsp;fill(250,83,113);<br>
+      &emsp;ellipse(183,300,20,40);<br>
+      &emsp;ellipse(154,394,20,30);<br>
+      &emsp;ellipse(88,477,20,40);<br>
+      &emsp;ellipse(98,566,20,40);<br><br>
+      &emsp;ellipse(307,292,20,40);<br>
+      &emsp;ellipse(304,410,20,40);<br>
+      &emsp;ellipse(226,485,20,30);<br>
+      &emsp;ellipse(233,570,20,30);<br>
+      &emsp;strokeWeight(10);<br>
+      &emsp;stroke(111,38,93);<br>
+      &emsp;noFill();<br>
+      &emsp;curve(230, 226, 210, 307, 289, 301, 230, 226);<br>
+      &emsp;curve(294, 332, 198, 389, 267, 427, 294, 332);<br>
+      &emsp;curve(210, 414, 185, 494, 128, 445, 210, 414);<br>
+      &emsp;curve(168, 447, 116, 561, 200, 558, 168, 447);<br><br>
+      
+      <span class="commentaires" style="text-align:">&emsp;//Bouche</span><br>
+      &emsp;strokeWeight(10);<br>
+      &emsp;stroke(155,65,75);<br>
+      &emsp;fill(30,15,36);<br>
+      &emsp;ellipse(200,210,210,100);<br><br>
+        
+      
+      <span class="commentaires" style="text-align:">&emsp;//Dents</span><br>
+      &emsp;strokeWeight(2);<br>
+      &emsp;stroke(12);<br><br>
+      &emsp;fill(255);<br>
+      &emsp;triangle(109,192,121,183,124,205);<br>
+      &emsp;triangle(144,174,161,169,159,193);<br>
+      &emsp;triangle(186,166,207,166,198,190);<br>
+      &emsp;triangle(width-144,174,width-161,169,width-159,193);<br>
+      &emsp;triangle(width-109,192,width-121,183,width-124,205);<br>
+      &emsp;triangle(109,height-192-180,121,height-183-180,124,height-205-180);<br>
+      &emsp;triangle(144,height-174-180,161,height-169-180,159,height-193-180);<br>
+      &emsp;triangle(186,height-166-180,207,height-166-180,198,height-190-180);<br>
+      &emsp;triangle(width-144,height-174-180,width-161,height-169-180,width-159,height-193-180);<br>
+      &emsp;triangle(width-109,height-192-180,width-121,height-183-180,width-124,height-205-180);<br><br>
+      
+      <span class="commentaires" style="text-align:">&emsp;//Salive</span><br>
+      &emsp;strokeWeight(3);<br>
+      &emsp;stroke(28,66,29);<br>
+      &emsp;fill(87,161,76);<br>
+      &emsp;arc(177, 254, 10, 65, 0, PI);<br>
+      &emsp;arc(210, 254, 10, 15, 0, PI);<br>
+      &emsp;arc(121, 236, 10, 60, PI/4, -PI/1.1);<br>
+      &emsp;arc(276, 238, 12, 150, -PI/4, PI/1.1);<br>
+      
+    }<br><br>
+    
+    function draw() <br>
+    {<br>
+        <span class="commentaires" style="text-align:">&emsp;//Si la souris est au niveau des yeux, ils regardent en face, sinon ils suivent la souris</span><br>
+        &emsp;if (dist(200,150,mouseX,mouseY) < 85 && mouseY < 160){ <br>
+        &emsp;&emsp;strokeWeight(5);<br>
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(111,145,30);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(111,145,10);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(131,94,25);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(131,94,8);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(187,61,35);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(187,61,15);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(171,137,20);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(171,137,4);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(230,130,35);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(230,130,15);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(287,145,30);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(287,145,10);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(267,110,23);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(267,110,6);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(250,70,23);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(250,70,6);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(218,89,23);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(218,89,6);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(171,103,23);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(171,103,6);<br>
+        &emsp;} <br>
+        &emsp;else {<br>
+        &emsp;&emsp;strokeWeight(5);<br>
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br><br>
+        &emsp;&emsp;circle(111,145,30);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(constrain(mouseX, 104, 118),constrain(mouseY, 138, 152),10);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(131,94,25);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(constrain(mouseX, 124, 138),constrain(mouseY, 87, 101),8);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(187,61,35);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(constrain(mouseX, 180, 194),constrain(mouseY, 54, 68),15);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(171,137,20);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(constrain(mouseX, 164, 178),constrain(mouseY, 130, 144),4);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(230,130,35);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(constrain(mouseX, 223, 237),constrain(mouseY, 123, 137),15);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(287,145,30);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(constrain(mouseX, 280, 294),constrain(mouseY, 138, 152),10);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(267,110,23);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(constrain(mouseX, 260, 274),constrain(mouseY, 103, 117),6);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(250,70,23);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(constrain(mouseX, 243, 257),constrain(mouseY, 63, 77),6);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(218,89,23);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(constrain(mouseX, 211, 225),constrain(mouseY, 82, 96),6);<br><br>
+    
+        &emsp;&emsp;stroke(77,20,149);<br>
+        &emsp;&emsp;fill(79,116,220);<br>
+        &emsp;&emsp;circle(171,103,23);<br>
+        &emsp;&emsp;noStroke();<br>
+        &emsp;&emsp;fill(89,252,251);<br>
+        &emsp;&emsp;circle(constrain(mouseX, 164, 178),constrain(mouseY, 96, 110),6);<br>
+        &emsp;}<br>
+
+  
+}<br><br><br><br><br><br></p>
+  </div>
+
+      
+</body>
+</html>

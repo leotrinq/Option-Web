@@ -1,0 +1,357 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <script src="p5.js"></script>
+    <script src="Etoile.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <meta charset="utf-8">
+    <style>
+    body 
+    {
+      background-image: url('../images/fond.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+    }
+    </style>
+</head>
+
+<body>
+<!--=====================================================-->
+  <div class="header">
+    <svg class="rect" width="100%" height="100">
+        <defs>
+            <linearGradient id="grad1" x1="50%" y1="0%" x2="50%" y2="140%">
+                <stop offset="0%" style="stop-color:rgb(10,10,10);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(200,200,200);stop-opacity:1" />
+            </linearGradient>
+        </defs><rect class="rect" width="100%" height="100" fill="url(#grad1)"></rect>
+    </svg>
+    <div>
+        <center><h1 class="titre" style="color:rgb(230,230,230);text-align:center"><font face="Bahnschrift Condensed">Exo 2 : Panorama urbain sur fond étoilé</font></h1></center>
+        <a href="../index.html"><img src="../images/home.png" title="Menu" class="martin" style="float:left"></a><br><br><br>
+        <span class="martin2" style="color:rgb(230,230,230);float:right"><font face="Bahnschrift Condensed">Léo Trinquet</font></span>
+    </div>
+<!--=====================================================-->
+
+  <br>
+  <center><h2><u><font face="Bahnschrift Condensed">Aperçu :</font></u></h2></center>
+  
+  <!--=========================-->
+  <center><script src="sketchExo2.js"></script></center>
+  <center><div id='sketch-holder1' width="200" height="200"></div></center>
+  
+<!--========================1=============================-->  
+
+  <center><h2><u><font face="Bahnschrift Condensed">Code :</font></u></h2></center>
+  
+  <div id="code1" class="codes" style="position: relative;margin: auto;height:5455px;width:600px;background:gray;border:2px solid;background-color: white;background-color: rgba(255, 255, 255, .5)">
+    <p><span class="commentaires">//Trinquet Léo - TP2 : Exercice 2 :  Panorama urbain sur fond étoilé | 23/03</span><br>
+    <a href ="https://editor.p5js.org/leooo/sketches/4rQtxIDb6">https://editor.p5js.org/leooo/sketches/4rQtxIDb6</a><br><br>
+    function setup()<br>
+    {<br>
+       &emsp;let canvas = createCanvas(680, 500);<span class="commentaires" style="text-align:">&emsp;//zone de dessin</span><br>
+      &emsp;background(0,0,10); <span class="commentaires" style="text-align:">&emsp;// ciel noir</span><br>
+      &emsp;for (let n=0 ; n<600 ; n++)<br>
+        &emsp;{<br>
+          &emsp;&emsp;new Etoile();<br>
+        &emsp;}<br><br>
+    
+      &emsp;<span class="commentaires" style="text-align:">//Urbain</span><br>
+      &emsp;fenêtres = [] <span class="commentaires" style="text-align:">&emsp;//On ajoute les coordonnées de chaque fenêtre</span><br>
+      &emsp;x = 8; <span class="commentaires" style="text-align:">&emsp;// largeur des fenêtres+écart</span><br>
+      &emsp;let y = 4; <span class="commentaires" style="text-align:">&emsp;// distance entre deux bâtiments</span><br>
+      &emsp;noStroke();<br>
+      &emsp;fill(150); <span class="commentaires" style="text-align:">&emsp;//fond bâtiments</span><br><br>
+        
+        &emsp;<span class="commentaires" style="text-align:">//Bâtiments</span><br>
+        &emsp;rect(0    +    y,500,6*x,-170) <span class="commentaires" style="text-align:">&emsp;//6* (5fenêtres+bord)</span><br>
+        &emsp;rect(6*x  +  2*y,500,3*x,-220)<br>
+        &emsp;rect(9*x  +  3*y,500,8*x,-90)<br>
+        &emsp;rect(17*x +  4*y,500,5*x,-150)<br>
+        &emsp;rect(22*x +  5*y,500,9*x,-200)<br>
+        &emsp;rect(31*x +  6*y,500,8*x,-250)<br>
+        &emsp;rect(39*x +  7*y,500,4*x,-260)<br>
+        &emsp;rect(43*x +  8*y,500,9*x,-120)<br>
+        &emsp;rect(52*x +  9*y,500,8*x,-180)<br>
+        &emsp;rect(60*x + 10*y,500,3*x,-270)<br>
+        &emsp;rect(63*x + 11*y,500,4*x,-160)<br>
+        &emsp;rect(67*x + 12*y,500,8*x,-140)<br>
+        &emsp;rect(75*x + 13*y,500,3*x,-150)<br><br>
+        
+        &emsp;let h = 10; <span class="commentaires" style="text-align:">&emsp;//hauteur fenêtres</span><br><br>
+        
+        &emsp;<span class="commentaires" style="text-align:">//Fenêtres Bâtiment 1 :</span><br><br>
+        
+        
+        &emsp;<span class="commentaires" style="text-align:">// fenêtres de haut en bas</span><br>
+        &emsp;for (let j=500-170+4 ; j<485 ; j+=h+1) <br>
+          &emsp;{<br>
+            &emsp;&emsp;h = random(7,13);<br>
+            &emsp;&emsp;for(let i=2*y-1 ; i<5*x+2*y ; i+=x+0.25)<br>
+              &emsp;&emsp;{<br>
+                &emsp;&emsp;&emsp;let couleur = random(100,220);<br>
+                &emsp;&emsp;&emsp;fill(couleur,couleur,0);<br>
+                &emsp;&emsp;&emsp;rect(i,j,x,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,i);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,j);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,couleur);<br>
+              &emsp;&emsp;}<br>
+          &emsp;}<br><br>
+        
+        &emsp;<span class="commentaires" style="text-align:">//Fenêtres Bâtiment 2 :</span><br>
+        &emsp;for (let j=500-220+4 ; j<485 ; j+=h+1) <br>
+          &emsp;{<br>
+            &emsp;&emsp;h = random(7,13);<br>
+            &emsp;&emsp;for(let i=6*x  +  3*y-1 ; i<8*x+3*y-1 ; i+=x+0.25)<br>
+              &emsp;&emsp;{<br>
+                &emsp;&emsp;&emsp;let couleur = random(100,220);<br>
+                &emsp;&emsp;&emsp;fill(couleur,couleur,0);<br>
+                &emsp;&emsp;&emsp;fenêtres.push(rect(i,j,x,h));<br>
+                &emsp;&emsp;&emsp;append(fenêtres,i);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,j);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,couleur);<br>
+              &emsp;&emsp;}<br>
+          &emsp;}<br><br>
+        
+        &emsp;<span class="commentaires" style="text-align:">//Fenêtres Bâtiment 3 :</span><br>
+        &emsp;for (let j=500-90+4 ; j<485 ; j+=h+1) <br>
+          &emsp;{<br>
+            &emsp;&emsp;h = random(7,13);<br>
+            &emsp;&emsp;for(let i=9*x  +  4*y-1 ; i<16*x+4*y-1 ; i+=x+0.25)<br>
+              &emsp;&emsp;{<br>
+                &emsp;&emsp;&emsp;let couleur = random(100,220);<br>
+                &emsp;&emsp;&emsp;fill(couleur,couleur,0);<br>
+                &emsp;&emsp;&emsp;rect(i,j,x,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,i);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,j);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,couleur);<br>
+              &emsp;&emsp;}<br>
+          &emsp;}<br><br>
+        
+        &emsp;<span class="commentaires" style="text-align:">//Fenêtres Bâtiment 4 :</span><br>
+        &emsp;for (let j=500-150+4 ; j<485 ; j+=h+1) <br>
+          &emsp;{<br>
+            &emsp;&emsp;h = random(7,13);<br>
+            &emsp;&emsp;for(let i=17*x  +  5*y-1 ; i<21*x+5*y-1 ; i+=x+0.25)<br>
+              &emsp;&emsp;{<br>
+                &emsp;&emsp;&emsp;let couleur = random(100,220);<br>
+                &emsp;&emsp;&emsp;fill(couleur,couleur,0);<br>
+                &emsp;&emsp;&emsp;rect(i,j,x,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,i);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,j);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,couleur);<br>
+              &emsp;&emsp;}<br>
+          &emsp;}<br><br>
+        
+        &emsp;<span class="commentaires" style="text-align:">//Fenêtres Bâtiment 5 :</span><br>
+        &emsp;for (let j=500-200+4 ; j<485 ; j+=h+1) <br>
+          &emsp;{<br>
+            &emsp;&emsp;h = random(7,13);<br>
+            &emsp;&emsp;for(let i=22*x  +  6*y-1 ; i<30*x+6*y-1 ; i+=x+0.25)<br>
+              &emsp;&emsp;{<br>
+                &emsp;&emsp;&emsp;let couleur = random(100,220);<br>
+                &emsp;&emsp;&emsp;fill(couleur,couleur,0);<br>
+                &emsp;&emsp;&emsp;rect(i,j,x,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,i);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,j);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,couleur);<br>
+              &emsp;&emsp;}<br>
+          &emsp;}<br><br>
+        
+        &emsp;<span class="commentaires" style="text-align:">//Fenêtres Bâtiment 6 :</span><br>
+        &emsp;for (let j=500-250+4 ; j<485 ; j+=h+1) <br>
+          &emsp;{<br>
+            &emsp;&emsp;h = random(7,13);<br>
+            &emsp;&emsp;for(let i=31*x  +  7*y-1 ; i<38*x+7*y-1 ; i+=x+0.25)<br>
+              &emsp;&emsp;{<br>
+                &emsp;&emsp;&emsp;let couleur = random(100,220);<br>
+                &emsp;&emsp;&emsp;fill(couleur,couleur,0);<br>
+                &emsp;&emsp;&emsp;rect(i,j,x,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,i);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,j);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,couleur);<br>
+              &emsp;&emsp;}<br>
+          &emsp;}<br><br>
+        
+        &emsp;<span class="commentaires" style="text-align:">//Fenêtres Bâtiment 7 :</span><br>
+        &emsp;for (let j=500-260+4 ; j<485 ; j+=h+1) <br>
+          &emsp;{<br>
+            &emsp;&emsp;h = random(7,13);<br>
+            &emsp;&emsp;for(let i=39*x  +  8*y-1 ; i<42*x+8*y-1 ; i+=x+0.25)<br>
+              &emsp;&emsp;{<br>
+                &emsp;&emsp;&emsp;let couleur = random(100,220);<br>
+                &emsp;&emsp;&emsp;fill(couleur,couleur,0);<br>
+                &emsp;&emsp;&emsp;rect(i,j,x,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,i);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,j);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,couleur);<br>
+              &emsp;&emsp;}<br>
+          &emsp;}<br><br>
+        
+        &emsp;<span class="commentaires" style="text-align:">//Fenêtres Bâtiment 8 :</span><br>
+        &emsp;for (let j=500-120+4 ; j<485 ; j+=h+1) <br>
+          &emsp;{<br>
+            &emsp;&emsp;h = random(7,13);<br>
+            &emsp;&emsp;for(let i=43*x  +  9*y-1 ; i<51*x+9*y-1 ; i+=x+0.25)<br>
+              &emsp;&emsp;{<br>
+                &emsp;&emsp;&emsp;let couleur = random(100,220);<br>
+                &emsp;&emsp;&emsp;fill(couleur,couleur,0);<br>
+                &emsp;&emsp;&emsp;rect(i,j,x,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,i);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,j);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,couleur);<br>
+              &emsp;&emsp;}<br>
+          &emsp;}<br><br>
+        
+        &emsp;<span class="commentaires" style="text-align:">//Fenêtres Bâtiment 9 :</span><br>
+        &emsp;for (let j=500-180+4 ; j<485 ; j+=h+1) <br>
+          &emsp;{<br>
+            &emsp;&emsp;h = random(7,13);<br>
+            &emsp;&emsp;for(let i=52*x  +  10*y-1 ; i<59*x+10*y-1 ; i+=x+0.25)<br>
+              &emsp;&emsp;{<br>
+                &emsp;&emsp;&emsp;let couleur = random(100,220);<br>
+                &emsp;&emsp;&emsp;fill(couleur,couleur,0);<br>
+                &emsp;&emsp;&emsp;rect(i,j,x,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,i);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,j);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,couleur);<br>
+              &emsp;&emsp;}<br>
+          &emsp;}<br><br>
+        
+        &emsp;<span class="commentaires" style="text-align:">//Fenêtres Bâtiment 10 :</span><br>
+        &emsp;for (let j=500-270+4 ; j<485 ; j+=h+1) <br>
+          &emsp;{<br>
+            &emsp;&emsp;h = random(7,13);<br>
+            &emsp;&emsp;for(let i=60*x  +  11*y-1 ; i<62*x+11*y-1 ; i+=x+0.25)<br>
+              &emsp;&emsp;{<br>
+                &emsp;&emsp;&emsp;let couleur = random(100,220);<br>
+                &emsp;&emsp;&emsp;fill(couleur,couleur,0);<br>
+                &emsp;&emsp;&emsp;rect(i,j,x,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,i);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,j);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,couleur);<br>
+              &emsp;&emsp;}<br>
+          &emsp;}<br><br>
+        
+        &emsp;<span class="commentaires" style="text-align:">//Fenêtres Bâtiment 11 :</span><br>
+        &emsp;for (let j=500-160+4 ; j<485 ; j+=h+1) <br>
+          &emsp;{<br>
+            &emsp;&emsp;h = random(7,13);<br>
+            &emsp;&emsp;for(let i=63*x  +  12*y-1 ; i<66*x+12*y-1 ; i+=x+0.25)<br>
+              &emsp;&emsp;{<br>
+                &emsp;&emsp;&emsp;let couleur = random(100,220);<br>
+                &emsp;&emsp;&emsp;fill(couleur,couleur,0);<br>
+                &emsp;&emsp;&emsp;rect(i,j,x,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,i);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,j);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,couleur);<br>
+              &emsp;&emsp;}<br>
+          &emsp;}<br><br>
+        
+        &emsp;<span class="commentaires" style="text-align:">//Fenêtres Bâtiment 12 :</span><br>
+        &emsp;for (let j=500-140+4 ; j<485 ; j+=h+1) <br>
+          &emsp;{<br>
+            &emsp;&emsp;h = random(7,13);<br>
+            &emsp;&emsp;for(let i=67*x  +  13*y-1 ; i<74*x+13*y-1 ; i+=x+0.25)<br>
+              &emsp;&emsp;{<br>
+                &emsp;&emsp;&emsp;let couleur = random(100,220);<br>
+                &emsp;&emsp;&emsp;fill(couleur,couleur,0);<br>
+                &emsp;&emsp;&emsp;rect(i,j,x,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,i);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,j);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,couleur);<br>
+              &emsp;&emsp;}<br>
+          &emsp;}<br><br>
+        
+        &emsp;<span class="commentaires" style="text-align:">//Fenêtres Bâtiment 13 :</span><br>
+        &emsp;for (let j=500-150+4 ; j<485 ; j+=h+1) <br>
+          &emsp;{<br>
+            &emsp;&emsp;h = random(7,13);<br>
+            &emsp;&emsp;for(let i=75*x  +  14*y-1 ; i<77*x+14*y-1 ; i+=x+0.25)<br>
+              &emsp;&emsp;{<br>
+                &emsp;&emsp;&emsp;let couleur = random(100,220);<br>
+                &emsp;&emsp;&emsp;fill(couleur,couleur,0);<br>
+                &emsp;&emsp;&emsp;rect(i,j,x,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,i);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,j);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,h);<br>
+                &emsp;&emsp;&emsp;append(fenêtres,couleur);<br>
+              &emsp;&emsp;}<br>
+          &emsp;}<br>
+    } <br><br>
+    
+    
+    function mouseClicked() {<br>
+      &emsp;for (var i = 0; i < fenêtres.length-4; i+=4) {<br>
+        &emsp;&emsp;var d = dist(mouseX, mouseY, fenêtres[i], fenêtres[i+1]);<br>
+        &emsp;&emsp;if (d<7)<br>
+        &emsp;&emsp;{<br>
+          &emsp;&emsp;&emsp;if (fenêtres[i+3] < 160) <span class="commentaires" style="text-align:">//Si la fenêtre est éteinte, l'allumer</span><br>
+            &emsp;&emsp;&emsp;{<br>
+              &emsp;&emsp;&emsp;&emsp;fill(220,220,0);<br>
+              &emsp;&emsp;&emsp;&emsp;rect(fenêtres[i],fenêtres[i+1],x,fenêtres[i+2]);<br>
+              &emsp;&emsp;&emsp;&emsp;let newFenêtres=[fenêtres[i],fenêtres[i+1],fenêtres[i+2],220]<br>
+              &emsp;&emsp;&emsp;&emsp;fenêtres.splice(i-1,4);<br>
+              &emsp;&emsp;&emsp;&emsp;splice(fenêtres,newFenêtres,i-1)<br>
+            &emsp;&emsp;&emsp;}<br>
+          &emsp;&emsp;&emsp;else <span class="commentaires" style="text-align:">// Sinon l'éteindre</span><br>
+            &emsp;&emsp;&emsp;{<br>
+              &emsp;&emsp;&emsp;&emsp;fill(100,100,0);<br>
+              &emsp;&emsp;&emsp;&emsp;rect(fenêtres[i],fenêtres[i+1],x,fenêtres[i+2]);<br>
+              &emsp;&emsp;&emsp;&emsp;let newFenêtres=[fenêtres[i],fenêtres[i+1],fenêtres[i+2],100]<br>
+              &emsp;&emsp;&emsp;&emsp;fenêtres.splice(i-1,4);<br>
+              &emsp;&emsp;&emsp;&emsp;splice(fenêtres,newFenêtres,i-1)<br>
+            &emsp;&emsp;&emsp;}<br>
+        &emsp;&emsp;}<br>
+      &emsp;}<br>
+      }<br><br>
+
+    class Etoile<br>
+    {<br>
+      &emsp;constructor()<br>
+      &emsp;{<br>
+        &emsp;&emsp;<span class="commentaires" style="text-align:">// attributs</span><br>
+        &emsp;&emsp;this.x = random(800);<br>
+        &emsp;&emsp;this.y = random(500);<br>
+        &emsp;&emsp;<span class="commentaires" style="text-align:">// Les faisceaux sont tous de la même couleur pour une étoile donnée</span><br>
+        &emsp;&emsp;this.color = color(random(100,255),random(100,255),random(100,255)); <br>
+        &emsp;&emsp;stroke(this.color);<br><br>
+        
+        &emsp;&emsp;<span class="commentaires" style="text-align:">// Le nombre de faisceaux est variable</span><br>
+        &emsp;&emsp;for (let i=0; i < random(5,15) ; i++) <br>
+          &emsp;&emsp;{       <br>
+            &emsp;&emsp;&emsp;<span class="commentaires" style="text-align:">// La taille des étoiles est variable</span><br>
+            &emsp;&emsp;&emsp;strokeWeight(random(1,2.5)); <br>
+            &emsp;&emsp;&emsp;<span class="commentaires" style="text-align:">//centre ellicoïdal</span><br>
+            &emsp;&emsp;&emsp;point(this.x, this.y) <br>
+            &emsp;&emsp;&emsp;strokeWeight(0.2);<br>
+            &emsp;&emsp;&emsp;<span class="commentaires" style="text-align:">// L'angle entre deux faisceaux successifs est variable</span><br>
+            &emsp;&emsp;&emsp;<span class="commentaires" style="text-align:">// La longueur des faisceaux est variable</span><br>
+            &emsp;&emsp;&emsp;line(this.x, this.y, random(this.x-8, this.x+8), random(this.y-8, this.y+8)) <br>
+          &emsp;&emsp;}<br>
+        &emsp;&emsp;for (let j=0; j < random(3,5) ; j++)<br>
+          &emsp;&emsp;{<br>
+            &emsp;&emsp;&emsp;<span class="commentaires" style="text-align:">// Les plus longs sont plus rares</span><br>
+            &emsp;&emsp;&emsp;line(this.x, this.y, random(this.x-15, this.x+15), random(this.y-15, this.y+15))<br>
+          &emsp;&emsp;}<br>
+      &emsp;}<br>
+
+}<br><br><br><br><br><br></p>
+  </div>
+
+      
+</body>
+</html>
